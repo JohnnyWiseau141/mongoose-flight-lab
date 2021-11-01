@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <title>Document</title>
-</head>
+
+<%- include('../partials/html-head') %>
+<link rel='stylesheet' href='/stylesheets/flights/new.css' />
 <%- include('../partials/nav') %>
-<body>
-  <h1>Enter a New Flight:</h1>
+
+<main>
+  <h1><%= title %></h1>
   <form id="new-form" action="/flights" method="POST">
     <label for="airline-input">airline:</label>
       <select name="airline">
@@ -20,7 +15,7 @@
     <br>
     <label for="airport-input">Airport</label>
       <select name="airport">
-        <option value="DEN">DEN</option>
+        <option value="DEN" selected>DEN</option>
         <option value="DFW">DFW</option>
         <option value="AUS">AUS</option>
         <option value="BOS">BOS</option>
@@ -36,5 +31,6 @@
     <br>
     <button type="submit">Add Flight</button>
   </form>
-</body>
-</html>
+</main>
+
+<%- include("../partials/footer") %>

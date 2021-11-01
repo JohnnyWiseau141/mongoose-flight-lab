@@ -5,8 +5,12 @@ import * as flightsCtrl from '../controllers/flights.js'
 //localhost:3000/movies
 router.get('/', flightsCtrl.index)
 
+
 // GET /flights/new
 router.get('/new', flightsCtrl.new)
+
+router.get('/:id', flightsCtrl.show)
+
 // POST /flights
 router.post('/', flightsCtrl.create)
 

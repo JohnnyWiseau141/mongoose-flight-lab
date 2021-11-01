@@ -1,8 +1,5 @@
 import { Flight } from '../models/flight.js'
 
-function newFlight(req, res) {
-  res.render('flights/new')
-}
 
 function create(req, res) {
   for (let key in req.body) {
@@ -19,8 +16,24 @@ function create(req, res) {
 function index(req, res) {
   Flight.find({}, function(err, flights){
     res.render('flights/index', {
+      err: err,
       flights,
       title: 'All Flights'
+    })
+  })
+}
+
+function newFlight(req, res) {
+  res.render('flights/new', {
+    title: "Add Flight",
+  })
+}
+
+function show(req, res) {
+  Flight.findById(req.params.id, function(err, flight) {
+    res.render('flights/show', {
+      title: 'Flight Detail',
+      flight: flight,
     })
   })
 }
@@ -28,5 +41,6 @@ function index(req, res) {
 export {
   newFlight as new,
   create,
-  index
+  index,
+  show
 }
