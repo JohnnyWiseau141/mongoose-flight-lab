@@ -16,8 +16,8 @@
   </section>
   <h2>Purchase Tickets:</h2>
   <form id="add-ticket-form" action="/flights/<%= flight._id %>/tickets" method="POST">
-  <label for="seat">Seats: (A1-F99)</label>
-  <input name="seat" required patter="[A-F][1-9]/d?">
+  <label for="seat">Seats: A1-F99</label>
+  <input name="seat" required pattern="[A-F][1-9]/d?">
   <label for="price">Price:</label>
   <input name="price" type="number" min="0">
   <button type="submit">Buy</button>
@@ -29,7 +29,9 @@
         Seat: <%= ticket.seat %>
         Price: <%= ticket.price %>
     <% }) %> 
-    <% } %> 
+    <% } else { %>
+      <h2>No Tickets</h2>
+    <%  } %> 
   </section>
 </main>
 
