@@ -25,10 +25,14 @@
   <br>
   <section>
     <% if (flight.tickets.length) { %> 
+      <table>
       <% flight.tickets.forEach(function(ticket) { %>
-        Seat: <%= ticket.seat %>
-        Price: <%= ticket.price %>
+      <tr>
+        <td>Seat: <%= ticket.seat %></td>
+        <td>Price: <%= ticket.price %></td>
+      </tr>
     <% }) %> 
+      </table>
     <% } else { %>
       <h2>No Tickets</h2>
     <%  } %> 
