@@ -15,7 +15,8 @@ const flightSchema = new Schema({
   airport: {type: String, enum: ["AUS", "DFW", "DEN", "LAX", "SAN", "BOS"], default: 'DEN'},
   flightNo: {type: Number, min: 10, max: 9999, required: true},
   departs: {type: Date, default: new Date().setFullYear(new Date().getFullYear() + 1)},
-  tickets: [ticketSchema]
+  tickets: [ticketSchema],
+  destination: [{type: Schema.Types.ObjectId, ref: 'Destination'}],
 }, {
   timestamps: true
 })
