@@ -8,7 +8,7 @@ const destinationSchema = new Schema({
   timestamps: true,
 })
 
-const Desination = mongoose.model('Destination', destinationSchema)
+const Destination = mongoose.model('Destination', destinationSchema)
 
 export {
   Destination

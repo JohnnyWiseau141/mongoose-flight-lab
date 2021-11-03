@@ -39,7 +39,6 @@ function show(req, res) {
 }
 
 function createTicket(req, res) {
-  console.log('FOCUSING')
   Flight.findById(req.params.id, function(err, flight) {
     flight.tickets.push(req.body)
     flight.save(function(err) {
