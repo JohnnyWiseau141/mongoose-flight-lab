@@ -20,7 +20,7 @@
   <input name="seat" required pattern="[A-F][1-9]\d?">
   <label for="price">Price:</label>
   <input name="price" type="number" min="0">
-  <button type="submit">Buy</button>
+  <button type="submit">Acquire</button>
   </form>
   <br>
   <section>
@@ -36,6 +36,27 @@
     <% } else { %>
       <h2>No Tickets</h2>
     <%  } %> 
+    <br>
+    <% if(flight.destination.length) { %>
+    <div>Destinations:</div>
+    <br>
+    <ul>
+      <%- flight.destination.map(d =>
+        `<option value="${d._id}">${d.airport}</option>`
+      ).join('') %>
+    </ul>
+    <% } %>
+    <h3>Add destination(s):</h3>
+    <br>
+    <form id="add-des-to-flight" action="/flights/<%= flight._id %>/destination" method="POST">
+      <select name="destinationId">
+        <%- destinations.map(d =>
+        `<option value="${d._id}">${d.airport}</option>`
+        ).join('')%>
+      </select>
+      <button type="submit">Add Destination(s)</button>
+    </form>
+
   </section>
 </main>
 

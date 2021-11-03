@@ -4,18 +4,18 @@
 
 <main>
   <h1>Destination</h1>
+  </p> 
+  <form id="add-destination-form" action="/destinations" method="POST">
+    <label for="destinations">Add a Destination not listed in the dropdown below:</label>
+    <input type="text" name="airport" id="destination" required: true>
+    <button type="submit">Add Destination</button>
+  </form>
   <p>Listed Destination:
     <select>
       <% destinations.forEach(function(destination) { %>
         <option><%= destination.airport %></option> 
       <% }) %>
     </select>
-  </p> 
-  <form id="add-destination-form" action="/destinations" method="POST">
-    <label for="destinations">Add unlisted Destination:</label>
-    <input type="text" name="airport" id="destination" required: true>
-    <button type="submit">Add Destination</button>
-  </form>
 </main>
 
 <%- include('../partials/footer') %>

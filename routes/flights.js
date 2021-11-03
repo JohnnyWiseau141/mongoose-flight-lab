@@ -16,6 +16,8 @@ router.post('/', flightsCtrl.create)
 
 router.post('/:id/tickets', flightsCtrl.createTicket)
 
+router.post('/:id/destination', flightsCtrl.addDestination)
+
 /* GET flights listing. */
 router.get('/', function(req, res) {
   res.send('respond with a resource')
